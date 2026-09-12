@@ -6,6 +6,7 @@ on:
       - main
   pull_request:
     branches:
+      -main
 
 jobs:
   build-run:
@@ -22,12 +23,11 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Change to working Direction
+    - name: Change to working Directory
       run: cd my-app
 
     - name: Build with Maven
       run: mvn clean package
 
     - name: Run Java Application
-      run: |
-        java -cp my-app/target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+      run: java -cp my-app/target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
