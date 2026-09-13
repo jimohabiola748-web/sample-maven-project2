@@ -26,8 +26,10 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Build with Maven
-      run: mvn clean package
+    - name: Build and Run with Maven
+      working-directory: my-app/mvn
+      run: mvn clean install
 
     - name: Run Java Application
+      working-directory: my-app/mvn
       run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
